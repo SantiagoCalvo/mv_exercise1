@@ -40,9 +40,6 @@ def hyst_thresh_auto(edges_in: np.array, low_prop: float, high_prop: float) -> n
     low_threshold = np.percentile(edges_pixels, 100*(1-low_prop))
     high_threshold = np.percentile(edges_pixels, 100*(1-high_prop))
 
-    print(low_threshold)
-    print(high_threshold)
-
     hyst_out = hyst_thresh(edges_in=edges_in, low=low_threshold, high=high_threshold)
     ######################################################
     return hyst_out
