@@ -31,9 +31,19 @@ def hyst_thresh(edges_in: np.array, low: float, high: float) -> np.array:
     """
     ######################################################
     # Write your own code here
-    bitwise_img = edges_in.copy()  # Replace this line
+    weak_and_strong_pixels = np.where(edges_in >= low, edges_in, 0)
 
+    image_int8 = (weak_and_strong_pixels * 255).astype(np.uint8)
 
+    _, labels = cv2.connectedComponents(image_int8, connectivity=8)
+    
+    strong_pixels_mask = (edges_in > high)
 
+    strong_pixels_labels = np.unique(labels[strong_pixels_mask])
+
+    egde_pixels_mask = np.isin(labels, strong_pixels_labels)
+
+    bitwise_img = egde_pixels_mask * 1.0
+    
     ######################################################
     return bitwise_img

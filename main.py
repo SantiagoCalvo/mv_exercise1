@@ -54,7 +54,7 @@ if __name__ == '__main__':
     edges = non_max(gradients, orientations)
 
     # 4. Hysteresis Thresholding
-    hyst_method_auto = False
+    hyst_method_auto = True
 
     if hyst_method_auto:
         canny_edges = hyst_thresh_auto(edges, 0.7, 0.3)

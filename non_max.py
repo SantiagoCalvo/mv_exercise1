@@ -31,10 +31,7 @@ def non_max(gradients: np.array, orientations: np.array) -> np.array:
     orientations = np.rad2deg(orientations)
 
     nearest_aproximation = 45
-    aprox_orientations = (np.round(orientations/45.)*nearest_aproximation).astype("int")
-
-    print(np.unique(aprox_orientations))
-    print(np.unique(orientations))
+    aprox_orientations = (np.round(orientations/nearest_aproximation)*nearest_aproximation).astype("int")
 
     # use roll to get the different neighbors of the center pixel in all directions in the center pixel
     # in order to later compare the full matrix

@@ -34,9 +34,15 @@ def hyst_thresh_auto(edges_in: np.array, low_prop: float, high_prop: float) -> n
     """
     ######################################################
     # Write your own code here
-    hyst_out = edges_in.copy()  # Replace this line
+    edges_in_copy = edges_in.copy()
+    edges_pixels = edges_in_copy[edges_in > 0]
 
+    low_threshold = np.percentile(edges_pixels, 100*(1-low_prop))
+    high_threshold = np.percentile(edges_pixels, 100*(1-high_prop))
 
+    print(low_threshold)
+    print(high_threshold)
 
+    hyst_out = hyst_thresh(edges_in=edges_in, low=low_threshold, high=high_threshold)
     ######################################################
     return hyst_out
