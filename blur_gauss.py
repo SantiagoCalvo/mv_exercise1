@@ -3,8 +3,8 @@
 
 """ Blur the input image with Gaussian filter kernel
 
-Author: FILL IN
-MatrNr: FILL IN
+Author: Santiago Calvo Salazar
+MatrNr: 12450801
 """
 
 import cv2
@@ -25,6 +25,7 @@ def blur_gauss(img: np.array, sigma: float) -> np.array:
     ######################################################
     # Write your own code here
     kernel_width = int(2 * np.ceil(3 * sigma) + 1)
+    # kernel_width = 5 # test different kernel widths 
     kernel_space = np.linspace(-(kernel_width)/2., (kernel_width)/2., kernel_width)
     xx, yy = np.meshgrid(kernel_space, kernel_space)
     

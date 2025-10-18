@@ -3,8 +3,8 @@
 
 """ Edge detection with the Sobel filter
 
-Author: FILL IN
-MatrNr: FILL IN
+Author: Santiago Calvo Salazar
+MatrNr: 12450801
 """
 
 import cv2

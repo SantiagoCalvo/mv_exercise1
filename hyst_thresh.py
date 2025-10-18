@@ -3,8 +3,8 @@
 
 """ Hysteresis thresholding
 
-Author: FILL IN
-MatrNr: FILL IN
+Author: Santiago Calvo Salazar
+MatrNr: 12450801
 """
 
 import cv2
