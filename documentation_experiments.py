@@ -35,11 +35,12 @@ if __name__ == '__main__':
 
     # Before we start working with the image, we convert it from uint8 with range [0,255] to float32 with range [0,1]
     img_gray = img_gray.astype(np.float32) / 255.
+    img_gray = add_gaussian_noise(img=img_gray, mean=0, sigma=0.2) # add noise to original image
     show_image(img_gray, "Original Image", save_image=save_image, use_matplotlib=matplotlib_plotting)
     # plot_row_intensities(img_gray, row=int(np.round(img_gray.shape[0]/2)), title="Row intensities original image")
 
     # 1. Blur Image
-    sigma = 3  # Change this value
+    sigma = 4
     # sigma = 2
     # sigma = 6
     img_blur = blur_gauss(img_gray, sigma)
@@ -63,7 +64,7 @@ if __name__ == '__main__':
     if hyst_method_auto:
         canny_edges = hyst_thresh_auto(edges, 0.7, 0.3)
     else:
-        canny_edges = hyst_thresh(edges, 0.3, 0.5)
+        canny_edges = hyst_thresh(edges, 0.01, 0.05)
         # canny_edges = hyst_thresh(edges, 0.1, 0.4)
         # canny_edges = hyst_thresh(edges, 0.1, 0.2)
     show_image(canny_edges, "Canny Edges", save_image=save_image, use_matplotlib=matplotlib_plotting)
