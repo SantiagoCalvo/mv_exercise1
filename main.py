@@ -69,3 +69,6 @@ if __name__ == '__main__':
 
     # Destroy all OpenCV windows in case we have any open
     cv2.destroyAllWindows()
+
+    # References:
+    # The following medium article was use as a guide: https://medium.com/@soham.phanse/canny-edge-detection-in-python-4cbc1209adbc

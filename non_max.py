@@ -51,7 +51,7 @@ def non_max(gradients: np.array, orientations: np.array) -> np.array:
     diagonal_left = ~(horizontal | vertical | diagonal_right) # all the rest that is not on the previous
 
     # apply maximun suppresion in all directions 
-    edges = gradients.copy()  # Replace this line
+    edges = gradients.copy() 
 
     # only leave maximun in each direction
     edges[vertical & ((gradients < top) | (gradients < bottom))] = 0
